@@ -489,6 +489,7 @@ jobs:
             "ReSukiSU")
               echo "添加 ReSukiSU..."
               curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash $BRANCH
+              echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-🐾星夜萌🐾"' >> ./common/arch/arm64/configs/gki_defconfig
               ;;
             *)
               if [ -z "$LEGACY_SUKISU_CONFIG" ]; then
@@ -885,7 +886,7 @@ jobs:
         if: inputs.use_bbg
         working-directory: ${{ env.KERNEL_ROOT }}
         run: |
-          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
+          wget -O- https://github.com/az-zx/Baseband-guard/raw/main/setup.sh | bash
           echo "CONFIG_BBG=y" >> common/arch/arm64/configs/gki_defconfig
           sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' common/security/Kconfig
 
