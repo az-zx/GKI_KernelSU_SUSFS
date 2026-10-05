@@ -627,7 +627,7 @@ jobs:
               ;;
             "ReSukiSU")
               echo "添加 ReSukiSU..."
-              curl -LSs "https://raw.githubusercontent.com/az-zx/ReSukiSU/main/kernel/setup.sh" | bash $BRANCH
+              curl -LSs "https://raw.githubusercontent.com/az-zx/BakaSU/main/kernel/setup.sh" | bash
               echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-🐾星夜萌🐾"' >> ./common/arch/arm64/configs/gki_defconfig
               ;;
             *)
